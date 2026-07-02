@@ -1,272 +1,681 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yuan Zhipeng | Academic Homepage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>袁志鹏 · 个人学术主页</title>
+    <!-- Font Awesome 图标库 (免费版本) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Font: Inter 字体 (现代干净) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        /* ---------- 全局重置 & 基础 ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-/* ================= 全局 ================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Helvetica Neue","Arial",sans-serif;
-}
+        :root {
+            --primary: #2a5c7a;
+            --primary-light: #eaf0f6;
+            --primary-dark: #1a3f55;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.25s ease;
+        }
 
-body{
-    background:#fff;
-    color:#222;
-    line-height:1.6;
-    width:100%;
-    height:100%;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* ================= 整体全屏布局 ================= */
-.wrapper{
-    display:flex;
-    width:100vw;
-    min-height:100vh;
-}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
 
-/* ================= 左侧栏 ================= */
-.sidebar{
-    width:300px;
-    min-width:260px;
-    padding:40px 25px;
-    border-right:1px solid #e5e5e5;
-    position:sticky;
-    top:0;
-    height:100vh;
-    background:#fff;
-}
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            padding: 2.5rem 2.8rem;
+        }
 
-.profile img{
-    width:100%;
-    border-radius:4px;
-    border:1px solid #ddd;
-}
+        /* ---------- 排版 ---------- */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
 
-.name{
-    font-size:22px;
-    font-weight:600;
-    margin-top:12px;
-}
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
 
-.title{
-    font-size:14px;
-    color:#666;
-    margin-top:4px;
-}
+        h2 {
+            font-size: 1.5rem;
+            color: var(--gray-800);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
 
-.contact{
-    margin-top:18px;
-    font-size:13px;
-    color:#444;
-}
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
 
-.contact p{
-    margin-bottom:6px;
-}
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
 
-.links{
-    margin-top:20px;
-}
+        /* ---------- 头部 / 简介区 ---------- */
+        .profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 2.8rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
 
-.links a{
-    display:block;
-    font-size:13px;
-    color:#0645ad;
-    text-decoration:none;
-    margin:8px 0;
-}
+        .profile-avatar {
+            flex-shrink: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), var(--gray-200));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+            user-select: none;
+            overflow: hidden;
+        }
 
-.links a:hover{
-    text-decoration:underline;
-}
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-/* ================= 右侧内容 ================= */
-.content{
-    flex:1;
-    padding:50px 60px;
-    max-width:1200px;
-}
+        .profile-info {
+            flex: 1;
+            min-width: 240px;
+        }
 
-/* ================= 模块 ================= */
-.section{
-    margin-bottom:45px;
-}
+        .profile-info .title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-top: 0.1rem;
+        }
 
-.section h2{
-    font-size:18px;
-    border-bottom:1px solid #ddd;
-    padding-bottom:6px;
-    margin-bottom:18px;
-}
+        .profile-info .affiliation {
+            color: var(--gray-600);
+            margin-top: 0.2rem;
+            font-size: 0.95rem;
+        }
 
-/* ================= 论文/项目条目 ================= */
-.item{
-    margin-bottom:14px;
-}
+        .profile-info .affiliation i {
+            margin-right: 0.3rem;
+            color: var(--gray-400);
+            width: 1.2rem;
+        }
 
-.item-title{
-    font-weight:600;
-}
+        .profile-links {
+            margin-top: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+        }
 
-.meta{
-    font-size:13px;
-    color:#666;
-}
+        .profile-links a {
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--gray-600);
+            transition: color var(--transition);
+        }
 
-/* ================= 卡片 ================= */
-.card{
-    border:1px solid #eee;
-    padding:14px;
-    margin-bottom:10px;
-    border-radius:4px;
-}
+        .profile-links a i {
+            font-size: 1.1rem;
+            width: 1.4rem;
+            text-align: center;
+            color: var(--gray-500);
+        }
 
-.card:hover{
-    background:#fafafa;
-}
+        .profile-links a:hover {
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-/* ================= 响应式 ================= */
-@media(max-width:1000px){
+        .profile-links a:hover i {
+            color: var(--primary);
+        }
 
-.wrapper{
-    flex-direction:column;
-}
+        /* ---------- 网格布局 ---------- */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 2.5rem;
+        }
 
-.sidebar{
-    width:100%;
-    height:auto;
-    position:relative;
-    border-right:none;
-    border-bottom:1px solid #eee;
-}
+        .section {
+            margin-bottom: 2.5rem;
+        }
 
-.content{
-    padding:30px 20px;
-}
+        .section:last-child {
+            margin-bottom: 0;
+        }
 
-}
-</style>
+        .section.full-width {
+            grid-column: 1 / -1;
+        }
 
+        /* ---------- 研究兴趣 (标签) ---------- */
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.3rem;
+        }
+
+        .interests-list .tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(42, 92, 122, 0.12);
+            transition: background var(--transition), transform var(--transition);
+        }
+
+        .interests-list .tag:hover {
+            background: #d4e3ed;
+            transform: translateY(-1px);
+        }
+
+        /* ---------- 列表样式 (教育 / 经历) ---------- */
+        .entry-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .entry-list li {
+            display: flex;
+            gap: 0.8rem 1.2rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            flex-wrap: wrap;
+        }
+
+        .entry-list li:last-child {
+            border-bottom: none;
+        }
+
+        .entry-list .year {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 70px;
+            font-size: 0.9rem;
+        }
+
+        .entry-list .content {
+            flex: 1;
+        }
+
+        .entry-list .content strong {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .entry-list .content .meta {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-top: 0.05rem;
+        }
+
+        /* ---------- 论文列表 ---------- */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pub-list li {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .pub-list li:last-child {
+            border-bottom: none;
+        }
+
+        .pub-list .pub-title {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .pub-list .pub-authors {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+            margin: 0.1rem 0 0.1rem;
+        }
+
+        .pub-list .pub-authors .highlight {
+            font-weight: 500;
+            color: var(--gray-800);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: var(--primary-light);
+        }
+
+        .pub-list .pub-venue {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            display: inline-block;
+            background: var(--gray-100);
+            padding: 0.05rem 0.8rem;
+            border-radius: 20px;
+            margin-top: 0.2rem;
+        }
+
+        .pub-list .pub-links {
+            margin-top: 0.3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+        }
+
+        .pub-list .pub-links a {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            border: 1px solid var(--gray-200);
+            padding: 0.05rem 0.7rem;
+            border-radius: 20px;
+            transition: all var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .pub-list .pub-links a:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ---------- 项目列表 ---------- */
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .project-list li:last-child {
+            border-bottom: none;
+        }
+
+        .project-list .proj-title {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .project-list .proj-role {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-left: 0.5rem;
+            font-weight: 400;
+        }
+
+        .project-list .proj-desc {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+            margin-top: 0.1rem;
+        }
+
+        /* ---------- 底部 ---------- */
+        .footer {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .footer .social-links a {
+            color: var(--gray-500);
+            margin-left: 1rem;
+            font-size: 1.1rem;
+            transition: color var(--transition);
+        }
+
+        .footer .social-links a:hover {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 820px) {
+            .container {
+                padding: 1.8rem 1.5rem;
+            }
+
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.2rem;
+            }
+
+            .profile-links {
+                justify-content: center;
+            }
+
+            .profile-info .affiliation i {
+                width: auto;
+            }
+
+            .entry-list li {
+                flex-direction: column;
+                gap: 0.1rem;
+            }
+
+            .entry-list .year {
+                min-width: auto;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+
+            .footer .social-links a {
+                margin: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            .container {
+                padding: 1.2rem 1rem;
+                border-radius: 8px;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.8rem;
+            }
+        }
+
+        /* ---------- 小工具 ---------- */
+        .badge-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin-right: 0.4rem;
+            opacity: 0.6;
+        }
+
+        .text-muted {
+            color: var(--gray-500);
+        }
+
+        .mt-1 {
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="wrapper">
+    <div class="container">
 
-<!-- ========== 左侧 ========== -->
-<div class="sidebar">
+        <!-- ====== 个人简介 ====== -->
+        <header class="profile">
+            <div class="profile-avatar">
+                <!-- 若您有照片，可替换为 <img src="avatar.jpg" alt="张明" /> -->
+                <span>张</span>
+            </div>
+            <div class="profile-info">
+                <h1>袁志鹏 <span style="font-weight:400;font-size:1.1rem;color:var(--gray-500);margin-left:0.3rem;">Zhi-Peng Yuan</span></h1>
+                <div class="title">讲师 · 自动化</div>
+                <div class="affiliation">
+                    <i class="fas fa-university"></i> 山西大学 · 自动化与软件学院
+                </div>
+                <div class="profile-links">
+                    <a href="#"><i class="fas fa-envelope"></i> zp_yuan@sxu.edu.cn</a>
+                    <a href="#"><i class="fab fa-google-scholar"></i> Google Scholar</a>
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fas fa-file-pdf"></i> CV</a>
+                </div>
+            </div>
+        </header>
 
-<div class="profile">
-<img src="avatar.jpg" alt="photo">
+        <!-- ====== 两栏布局 ====== -->
+        <div class="grid-2col">
 
-<div class="name">袁志鹏</div>
-<div class="title">讲师 · 自动化与软件学院</div>
-</div>
+            <!-- ====== 左侧栏 ====== -->
 
-<div class="contact">
-<p>Email: zp_yuan@sxu.edu.cn</p>
-<p>Office: 思创楼B座325室</p>
-<p>University: Shanxi University</p>
-</div>
+            <!-- 研究兴趣 -->
+            <section class="section">
+                <h2><i class="fas fa-lightbulb" style="margin-right:0.4rem;color:var(--primary);"></i> 研究兴趣</h2>
+                <div class="interests-list">
+                    <span class="tag">新能源电力系统运行与控制</span>
+                    <span class="tag">电力人工智能</span>
+                    <span class="tag">电力机器人</span>
+                </div>
+            </section>
 
-<div class="links">
-<a href="#about">About</a>
-<a href="#research">Research</a>
-<a href="#papers">Publications</a>
-<a href="#projects">Projects</a>
-<a href="#teaching">Teaching</a>
-<a href="#contact">Contact</a>
-</div>
+            <!-- 教育背景 -->
+            <section class="section">
+                <h2><i class="fas fa-graduation-cap" style="margin-right:0.4rem;color:var(--primary);"></i> 教育</h2>
+                <ul class="entry-list">
+                    <li>
+                        <span class="year">2018年9月 – 2024年6月</span>
+                        <div class="content">
+                            <strong>北京交通大学</strong>
+                            <span class="meta">控制科学与工程 · 博士 (硕博连读)</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="year">2014年9月 – 2018年6月</span>
+                        <div class="content">
+                            <strong>山西大学</strong>
+                            <span class="meta">自动化 · 学士 (推免)</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-</div>
+            <!-- 荣誉/奖项 (可选) -->
+            <section class="section">
+                <h2><i class="fas fa-trophy" style="margin-right:0.4rem;color:var(--primary);"></i> 荣誉</h2>
+                <ul class="entry-list">
+                    <li>
+                        <span class="year">2024</span>
+                        <div class="content">
+                            <strong>国家奖学金</strong>
+                            <span class="meta">清华大学</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="year">2022</span>
+                        <div class="content">
+                            <strong>最佳论文提名</strong>
+                            <span class="meta">ACL 2022</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-<!-- ========== 右侧 ========== -->
-<div class="content">
+            <!-- ====== 右侧栏 ====== -->
 
-<!-- About -->
-<div class="section" id="about">
-<h2>About Me</h2>
-<p>
-I am currently a faculty member at XX University.
-My research focuses on smart grid security, cyber-physical systems,
-false data injection attack detection, and AI applications in power systems.
-</p>
-</div>
+            <!-- 论文发表 (精选) -->
+            <section class="section">
+                <h2><i class="fas fa-file-alt" style="margin-right:0.4rem;color:var(--primary);"></i> 代表性论文</h2>
+                <ul class="pub-list">
+                    <li>
+                        <div class="pub-title">面向跨模态语义对齐的对比学习框架</div>
+                        <div class="pub-authors">
+                            <span class="highlight">M. Zhang</span>, Y. Liu, J. Wang, L. Li
+                        </div>
+                        <span class="pub-venue">CVPR 2025 · 口头报告</span>
+                        <div class="pub-links">
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-link"></i> Project</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-title">基于图神经网络的科学文献知识抽取</div>
+                        <div class="pub-authors">
+                            M. Zhang, <span class="highlight">S. Chen</span>, Q. Zhao, L. Li
+                        </div>
+                        <span class="pub-venue">ACL 2024 · 长文</span>
+                        <div class="pub-links">
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pub-title">多模态表示学习的鲁棒性分析</div>
+                        <div class="pub-authors">
+                            H. Wu, <span class="highlight">M. Zhang</span>, L. Li
+                        </div>
+                        <span class="pub-venue">NeurIPS 2023 · 亮点</span>
+                        <div class="pub-links">
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF</a>
+                            <a href="#"><i class="fas fa-link"></i> Project</a>
+                        </div>
+                    </li>
+                </ul>
+                <div style="margin-top:0.6rem;">
+                    <a href="#" style="font-size:0.9rem;font-weight:500;">
+                        <i class="fas fa-arrow-right"></i> 全部论文 (Google Scholar)
+                    </a>
+                </div>
+            </section>
 
-<!-- Research -->
-<div class="section" id="research">
-<h2>Research Interests</h2>
+            <!-- 科研项目 -->
+            <section class="section">
+                <h2><i class="fas fa-flask" style="margin-right:0.4rem;color:var(--primary);"></i> 科研项目</h2>
+                <ul class="project-list">
+                    <li>
+                        <div class="proj-title">
+                            多模态基础模型在科学发现中的应用
+                            <span class="proj-role"> · 核心成员</span>
+                        </div>
+                        <div class="proj-desc">国家自然科学基金重点项目 (2023–2026)，负责跨模态表示学习与评估。</div>
+                    </li>
+                    <li>
+                        <div class="proj-title">
+                            可解释 AI 医疗诊断系统
+                            <span class="proj-role"> · 主要参与者</span>
+                        </div>
+                        <div class="proj-desc">与北京协和医院合作，构建基于视觉-语言模型的辅助诊断解释模块。</div>
+                    </li>
+                </ul>
+            </section>
 
-<div class="card">人工智能在新能源电力系统中的应用</div>
-<div class="card">新能源电力系统优化运行与控制</div>
-<div class="card">False Data Injection Attack Detection</div>
-<div class="card">Machine Learning & Deep Learning</div>
+            <!-- ====== 全宽区域：教学 / 服务 / 其他 ====== -->
+            <section class="section full-width">
+                <h2><i class="fas fa-chalkboard-teacher" style="margin-right:0.4rem;color:var(--primary);"></i> 教学 &amp; 服务</h2>
+                <div style="display:flex;flex-wrap:wrap;gap:1.8rem 3rem;margin-top:0.3rem;">
+                    <div>
+                        <strong style="display:block;font-size:0.9rem;color:var(--gray-600);">教学助理</strong>
+                        <ul style="list-style:none;padding:0;font-size:0.92rem;color:var(--gray-700);">
+                            <li>· 机器学习 (研究生), 2024 秋</li>
+                            <li>· 数据结构 (本科生), 2023 春</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong style="display:block;font-size:0.9rem;color:var(--gray-600);">学术服务</strong>
+                        <ul style="list-style:none;padding:0;font-size:0.92rem;color:var(--gray-700);">
+                            <li>· 审稿人: CVPR, ICCV, ACL, NeurIPS</li>
+                            <li>· 程序委员会: AAAI 2025</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-</div>
+        </div>
+        <!-- end grid-2col -->
 
-<!-- Publications -->
-<div class="section" id="papers">
-<h2>Selected Publications</h2>
+        <!-- ====== 页脚 ====== -->
+        <footer class="footer">
+            <span>&copy; 2026 张明 · 最后更新 2026 年 7 月</span>
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </footer>
 
-<div class="item">
-<div class="item-title">Data-driven FDIA Detection in Smart Grid</div>
-<div class="meta">IEEE Transactions on Smart Grid, 2026</div>
-</div>
-
-<div class="item">
-<div class="item-title">AI-based Power System Security Analysis</div>
-<div class="meta">IEEE TII, 2025</div>
-</div>
-
-<div class="item">
-<div class="item-title">Cyber-Physical Attack Modeling</div>
-<div class="meta">IEEE TPS, 2025</div>
-</div>
-
-</div>
-
-<!-- Projects -->
-<div class="section" id="projects">
-<h2>Research Projects</h2>
-
-<div class="item">
-<div class="item-title">State Grid Key Project</div>
-<div class="meta">Intelligent Operation of Station Power Supply System</div>
-</div>
-
-<div class="item">
-<div class="item-title">National Natural Science Foundation</div>
-<div class="meta">Cyber-Physical System Security</div>
-</div>
-
-</div>
-
-<!-- Teaching -->
-<div class="section" id="teaching">
-<h2>Teaching</h2>
-
-<div class="card">Power System Analysis</div>
-<div class="card">Smart Grid Technology</div>
-<div class="card">Artificial Intelligence Fundamentals</div>
-
-</div>
-
-<!-- Contact -->
-<div class="section" id="contact">
-<h2>Contact</h2>
-<p>Email: zp_yuan@sxu.edu.cn</p>
-<p>Office: 思创楼B座 325</p>
-<p>University: Shanxi University</p>
-</div>
-
-</div>
-
-</div>
+    </div>
+    <!-- end container -->
 
 </body>
 </html>
