@@ -1,12 +1,272 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuan Zhipeng | Academic Homepage</title>
+
+<style>
+/* ================= 全局 ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Helvetica Neue","Arial",sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#222;
+    line-height:1.6;
+    width:100%;
+    height:100%;
+}
+
+/* ================= 整体全屏布局 ================= */
+.wrapper{
+    display:flex;
+    width:100vw;
+    min-height:100vh;
+}
+
+/* ================= 左侧栏 ================= */
+.sidebar{
+    width:300px;
+    min-width:260px;
+    padding:40px 25px;
+    border-right:1px solid #e5e5e5;
+    position:sticky;
+    top:0;
+    height:100vh;
+    background:#fff;
+}
+
+.profile img{
+    width:100%;
+    border-radius:4px;
+    border:1px solid #ddd;
+}
+
+.name{
+    font-size:22px;
+    font-weight:600;
+    margin-top:12px;
+}
+
+.title{
+    font-size:14px;
+    color:#666;
+    margin-top:4px;
+}
+
+.contact{
+    margin-top:18px;
+    font-size:13px;
+    color:#444;
+}
+
+.contact p{
+    margin-bottom:6px;
+}
+
+.links{
+    margin-top:20px;
+}
+
+.links a{
+    display:block;
+    font-size:13px;
+    color:#0645ad;
+    text-decoration:none;
+    margin:8px 0;
+}
+
+.links a:hover{
+    text-decoration:underline;
+}
+
+/* ================= 右侧内容 ================= */
+.content{
+    flex:1;
+    padding:50px 60px;
+    max-width:1200px;
+}
+
+/* ================= 模块 ================= */
+.section{
+    margin-bottom:45px;
+}
+
+.section h2{
+    font-size:18px;
+    border-bottom:1px solid #ddd;
+    padding-bottom:6px;
+    margin-bottom:18px;
+}
+
+/* ================= 论文/项目条目 ================= */
+.item{
+    margin-bottom:14px;
+}
+
+.item-title{
+    font-weight:600;
+}
+
+.meta{
+    font-size:13px;
+    color:#666;
+}
+
+/* ================= 卡片 ================= */
+.card{
+    border:1px solid #eee;
+    padding:14px;
+    margin-bottom:10px;
+    border-radius:4px;
+}
+
+.card:hover{
+    background:#fafafa;
+}
+
+/* ================= 响应式 ================= */
+@media(max-width:1000px){
+
+.wrapper{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+    border-right:none;
+    border-bottom:1px solid #eee;
+}
+
+.content{
+    padding:30px 20px;
+}
+
+}
+</style>
+
 </head>
+
 <body>
-    <h1>你好，世界！</h1>
-    <p>欢迎来到我的第一个个人网站。这里是使用 GitHub Pages 搭建的。</p>
+
+<div class="wrapper">
+
+<!-- ========== 左侧 ========== -->
+<div class="sidebar">
+
+<div class="profile">
+<img src="avatar.jpg" alt="photo">
+
+<div class="name">袁志鹏</div>
+<div class="title">讲师 · 自动化与软件学院</div>
+</div>
+
+<div class="contact">
+<p>Email: zp_yuan@sxu.edu.cn</p>
+<p>Office: 思创楼B座325室</p>
+<p>University: Shanxi University</p>
+</div>
+
+<div class="links">
+<a href="#about">About</a>
+<a href="#research">Research</a>
+<a href="#papers">Publications</a>
+<a href="#projects">Projects</a>
+<a href="#teaching">Teaching</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
+
+<!-- ========== 右侧 ========== -->
+<div class="content">
+
+<!-- About -->
+<div class="section" id="about">
+<h2>About Me</h2>
+<p>
+I am currently a faculty member at XX University.
+My research focuses on smart grid security, cyber-physical systems,
+false data injection attack detection, and AI applications in power systems.
+</p>
+</div>
+
+<!-- Research -->
+<div class="section" id="research">
+<h2>Research Interests</h2>
+
+<div class="card">人工智能在新能源电力系统中的应用</div>
+<div class="card">新能源电力系统优化运行与控制</div>
+<div class="card">False Data Injection Attack Detection</div>
+<div class="card">Machine Learning & Deep Learning</div>
+
+</div>
+
+<!-- Publications -->
+<div class="section" id="papers">
+<h2>Selected Publications</h2>
+
+<div class="item">
+<div class="item-title">Data-driven FDIA Detection in Smart Grid</div>
+<div class="meta">IEEE Transactions on Smart Grid, 2026</div>
+</div>
+
+<div class="item">
+<div class="item-title">AI-based Power System Security Analysis</div>
+<div class="meta">IEEE TII, 2025</div>
+</div>
+
+<div class="item">
+<div class="item-title">Cyber-Physical Attack Modeling</div>
+<div class="meta">IEEE TPS, 2025</div>
+</div>
+
+</div>
+
+<!-- Projects -->
+<div class="section" id="projects">
+<h2>Research Projects</h2>
+
+<div class="item">
+<div class="item-title">State Grid Key Project</div>
+<div class="meta">Intelligent Operation of Station Power Supply System</div>
+</div>
+
+<div class="item">
+<div class="item-title">National Natural Science Foundation</div>
+<div class="meta">Cyber-Physical System Security</div>
+</div>
+
+</div>
+
+<!-- Teaching -->
+<div class="section" id="teaching">
+<h2>Teaching</h2>
+
+<div class="card">Power System Analysis</div>
+<div class="card">Smart Grid Technology</div>
+<div class="card">Artificial Intelligence Fundamentals</div>
+
+</div>
+
+<!-- Contact -->
+<div class="section" id="contact">
+<h2>Contact</h2>
+<p>Email: zp_yuan@sxu.edu.cn</p>
+<p>Office: 思创楼B座 325</p>
+<p>University: Shanxi University</p>
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
